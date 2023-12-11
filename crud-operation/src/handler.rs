@@ -17,6 +17,21 @@ pub async fn health_checker_handler() -> WebResult<impl Reply> {
     Ok(json(response_json))
 }
 
+
+
+pub async fn hello_handler()->WebResult<impl Reply>{
+    const MESSAGE: &str = "Hello World";
+
+    let response_json = &GenericResponse {
+        status: "success".to_string(),
+        message: MESSAGE.to_string(),
+    };
+    Ok(json(response_json))
+}
+
+
+
+
 pub async fn todos_list_handler(opts: QueryOptions, db: DB) -> WebResult<impl Reply> {
     let todos = db.lock().await;
 

@@ -23,6 +23,13 @@ async fn main() {
         .and(warp::get())
         .and_then(handler::health_checker_handler);
 
+
+    let hello = warp::path!("api" / "hello")
+    .and(warp::get())
+    .and_then(handler::hello_handler);
+ 
+
+
     let cors = warp::cors()
         .allow_methods(&[Method::GET, Method::POST, Method::PATCH, Method::DELETE])
         .allow_origins(vec!["http://localhost:3000/", "http://localhost:8000/"])
@@ -54,11 +61,16 @@ async fn main() {
             .and(with_db(db.clone()))
             .and_then(handler::delete_todo_handler));
 
+
+  
+
+
     let routes = todo_routes
         .with(cors)
         .with(warp::log("api"))
         .or(todo_routes_id)
-        .or(health_checker);
+        .or(health_checker)
+        .or(hello);
 
     println!("🚀 Server started successfully");
     warp::serve(routes).run(([0, 0, 0, 0], 8000)).await;

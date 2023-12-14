@@ -1,1 +1,2 @@
 ## Rust_programming
+- traits

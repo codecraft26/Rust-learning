@@ -1,5 +1,6 @@
 use mongodb::bson::oid::ObjectId;
     use serde::{Serialize, Deserialize};
+   
 
     #[derive(Debug, Serialize, Deserialize)]
     pub struct User {
@@ -8,4 +9,11 @@ use mongodb::bson::oid::ObjectId;
         pub name: String,
         pub location: String,
         pub title: String,
+
+      
+
+     
+
+
+
     }

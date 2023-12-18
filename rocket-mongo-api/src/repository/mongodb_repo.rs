@@ -1,6 +1,7 @@
 use std::env;
 extern crate dotenv;
 use dotenv::dotenv;
+// use pwhash::bcrypt;
 
 use mongodb::{
     bson::{extjson::de::Error, oid::ObjectId, doc}, 
@@ -32,6 +33,7 @@ impl MongoRepo {
             name: new_user.name,
             location: new_user.location,
             title: new_user.title,
+           
         };
         let user = self
             .col
@@ -76,7 +78,8 @@ impl MongoRepo {
                     "id": new_user.id,
                     "name": new_user.name,
                     "location": new_user.location,
-                    "title": new_user.title
+                    "title": new_user.title,
+                   
                 },
         };
         let updated_doc = self
@@ -100,7 +103,7 @@ impl MongoRepo {
     }
 
 
-    
+
 
 
 

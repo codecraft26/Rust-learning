@@ -12,6 +12,8 @@ pub fn create_user(
         name: new_user.name.to_owned(),
         location: new_user.location.to_owned(),
         title: new_user.title.to_owned(),
+       
+
     };
     let user_detail = db.create_user(data);
     match user_detail {
@@ -63,6 +65,7 @@ pub fn create_user(
             name: new_user.name.to_owned(),
             location: new_user.location.to_owned(),
             title: new_user.title.to_owned(),
+            
         };
         let update_result = db.update_user(&id, data);
         match update_result {

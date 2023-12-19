@@ -9,6 +9,9 @@ use mongodb::bson::oid::ObjectId;
         pub name: String,
         pub location: String,
         pub title: String,
+        pub email: String,
+    
+
 
       
 

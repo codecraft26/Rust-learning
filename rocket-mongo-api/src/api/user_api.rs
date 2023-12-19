@@ -12,10 +12,13 @@ pub fn create_user(
         name: new_user.name.to_owned(),
         location: new_user.location.to_owned(),
         title: new_user.title.to_owned(),
+        email: new_user.email.to_owned(),
        
 
     };
     let user_detail = db.create_user(data);
+k
+
     match user_detail {
         Ok(user) => Ok(Json(user)),
         Err(_) => Err(Status::InternalServerError),
@@ -65,6 +68,7 @@ pub fn create_user(
             name: new_user.name.to_owned(),
             location: new_user.location.to_owned(),
             title: new_user.title.to_owned(),
+            email: new_user.email.to_owned(),
             
         };
         let update_result = db.update_user(&id, data);
@@ -105,3 +109,8 @@ pub fn create_user(
         }
 
     }
+
+
+    // #[post("/signup", data = "<new_user>")]
+
+    // fn signup()
